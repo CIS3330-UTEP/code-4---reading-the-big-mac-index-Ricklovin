@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 big_mac_file = './big-mac-full-index.csv'
+cvs_reader = csv.reader(big_mac_file)
 
 def get_big_mac_price_by_year(year,country_code):
     pass # Remove this line and code your function
