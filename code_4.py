@@ -13,12 +13,10 @@ def get_big_mac_price_by_year(year,country_code):
 
     country = df.loc[mean_price_by_year_and_country_code] 
 
-    bmpby = f"{country['dollar_price']}  {country['year']}"   
+    bmpby = f"{country['dollar_price'].round(2)}  {country['date']}"   
 
-    return bmpby                       
+    return bmpby                    
 
-
-    return big_mac_price_by_year.round(2)    #number 
 
 def get_big_mac_price_by_country(country_code):
     df = pd.read_csv(big_mac_file)
