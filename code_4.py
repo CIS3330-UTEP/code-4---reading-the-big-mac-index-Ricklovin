@@ -35,14 +35,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     
 
    # the_cheapest_big_mac_price_by_year = df.query(query)
-
-
-
-#
   #  return the_cheapest_big_mac_price_by_year.round(2)
-    
-    
-    
     
     
     # message
@@ -63,27 +56,24 @@ def get_the_most_expensive_big_mac_price_by_year(year):
 if __name__ == "__main__":
     df = pd.read_csv(big_mac_file)
 
-    print(df.columns)
+    #print(df.columns)
 
-    print(df.iso_a3)
+    #print(df.iso_a3)
 
 
     year = (input("Year desired: "))
-    country_code = str(input("Country Code: ").lower())
-
-
-    df = pd.read_csv(big_mac_file)
+    country_code = str(input("Country Code: ").upper())
 
     #query_for_year = df.loc[(df.date == year) & (df.iso_a3 == country_code)]
 
-    query_for_country = f"df.loc[df['iso_a3'] == country_code]"
+    query_for_country = df.loc[df['iso_a3'] == country_code]
 
-    #big_mac_price_by_country = df.query(query_for_country)
+    big_mac_price_by_country = df.eval(query_for_country)
 
-    print(query_for_country)
+    print(big_mac_price_by_country)
 
 
-
+    type(df.iso_a3)
 
 
 
