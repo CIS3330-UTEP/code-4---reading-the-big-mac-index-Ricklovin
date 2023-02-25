@@ -13,7 +13,7 @@ def get_big_mac_price_by_year(year,country_code):
 
     country = df.loc[mean_price_by_year_and_country_code] 
 
-    bmpby = f"{country['dollar_price'].mean()}  {country['date'[0:4]]}"   
+    bmpby = f"{country['dollar_price']} {country['date'[0:4]]}"   
 
     return bmpby                    
 
@@ -29,7 +29,7 @@ def get_big_mac_price_by_country(country_code):
 
     country = df.loc[mean_price]
 
-    mean_country_price = f"{country['dollar_price'].mean()}"
+    mean_country_price = f"{country['dollar_price']}"
 
     return mean_country_price    
 
@@ -40,7 +40,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
 
     the_expensive_big_mac_price_by_year = df.query(querys)
 
-    min_price = the_expensive_big_mac_price_by_year['dollar_price'].idxmin()
+    min_price = the_expensive_big_mac_price_by_year['dollar_price'].median
 
     country_code = df.loc[min_price]
 
@@ -67,9 +67,10 @@ def get_the_most_expensive_big_mac_price_by_year(year):
 
 if __name__ == "__main__":
 
-    year = input("The year desired:  ")
-    country_code = input("Country Code: ").upper
+    year = input("The year desired: ")
+    country_code = input("Country Code: ")
 
+    print(country_code)
 
     print(get_the_most_expensive_big_mac_price_by_year(year))
 
