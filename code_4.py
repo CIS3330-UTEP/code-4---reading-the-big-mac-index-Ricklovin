@@ -11,19 +11,28 @@ def get_big_mac_price_by_year(year,country_code):
 
     return big_mac_price_by_year.round(2)    #number 
 
+
+
+
+
 def get_big_mac_price_by_country(country_code):
     df = pd.read_csv(big_mac_file)
 
-    query = f"iso_a3 == {country_code}"
+    query = f"iso_a3 == '{country_code}'"
+
     big_mac_price_by_country = df.query(query)
 
-    mean_price = big_mac_price_by_country['dollar_price'].idxmean
+    mean_price = big_mac_price_by_country['dollar_price']
 
     country_code = df.loc[mean_price]
 
-    mean_country_price = f"{country_code['dollar_price'].round(2)}"
+    mean_country_price = f"{country_code['dollar_price'].mean()}"
 
     return mean_country_price    
+
+
+
+
 
 def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.read_csv(big_mac_file)
