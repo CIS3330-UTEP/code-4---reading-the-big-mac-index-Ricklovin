@@ -5,7 +5,7 @@ df = pd.read_csv(big_mac_file)
 def get_big_mac_price_by_year(year,country_code):
     df = pd.read_csv(big_mac_file)
 
-    query = df.loc[(df['date'] == {year}) and (df.iso_a3 == {country_code}.upper())]
+    query = df.loc[(df['date'] == {year}) & (df.iso_a3 == {country_code}.upper())]
 
 
 
@@ -15,10 +15,6 @@ def get_big_mac_price_by_year(year,country_code):
 
     return big_mac_price_by_year.round(2)    #number 
     
-
-
-
-
 def get_big_mac_price_by_country(country_code):
     df = pd.read_csv(big_mac_file)
 
@@ -64,12 +60,6 @@ def get_the_most_expensive_big_mac_price_by_year(year):
 
 
 
-
-
-
-
-
-
 if __name__ == "__main__":
     df = pd.read_csv(big_mac_file)
 
@@ -82,9 +72,21 @@ if __name__ == "__main__":
     country_code = str(input("Country Code: ").lower())
 
 
+    df = pd.read_csv(big_mac_file)
+
+    #query_for_year = df.loc[(df.date == year) & (df.iso_a3 == country_code)]
+
+    query_for_country = f"df.loc[df['iso_a3'] == country_code]"
+
+    #big_mac_price_by_country = df.query(query_for_country)
+
+    print(query_for_country)
 
 
-    print(get_big_mac_price_by_country(country_code))
+
+
+
+
    
     
 
