@@ -40,7 +40,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
 
     the_expensive_big_mac_price_by_year = df.query(querys)
 
-    min_price = the_expensive_big_mac_price_by_year['dollar_price'].median
+    min_price = the_expensive_big_mac_price_by_year['dollar_price'].idxmin()
 
     country_code = df.loc[min_price]
 
